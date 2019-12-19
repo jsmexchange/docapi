@@ -1,0 +1,349 @@
+# Data v1
+
+## Get instruments
+
+```shell
+curl "https://<%= config[:api_domain] %>/v1/data/instruments"
+  -H "<%= config[:authorization_method] %>"
+```
+
+```javascript
+const <%= config[:sdk_class_name] %> = require('<%= config[:sdk_name] %>');
+
+let api = <%= config[:sdk_class_name] %>.authorize('<api_token>');
+let instruments = api.instruments();
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+   "success":true,
+   "result":[
+      {
+         "stock":{
+            "alias":"BTC",
+            "precision":8
+         },
+         "money":{
+            "alias":"EUR",
+            "precision":8
+         },
+         "ticker":"BTCEUR",
+         "enabled":true,
+         "options":{
+            "decimal_precision":8,
+            "min_amount_pow":3,
+            "max_amount_pow":8
+         }
+      }
+   ]
+}
+```
+
+This endpoint retrieves all the trading instruments.
+
+### HTTP Request
+
+`GET https://<%= config[:api_domain] %>/v1/data/instruments`
+
+<aside class="success">
+Instruments — list of all the trading instruments available right now
+</aside>
+
+
+## Get assets
+
+```shell
+curl "https://<%= config[:api_domain] %>/v1/data/assets"
+  -H "<%= config[:authorization_method] %>"
+```
+
+```javascript
+const <%= config[:sdk_class_name] %> = require('<%= config[:sdk_name] %>');
+
+let api = <%= config[:sdk_class_name] %>.authorize('<api_token>');
+let assets = api.assets();
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+   "success":true,
+   "result":[
+      {
+         "asset":	"eur",
+         "alias":	"EUR",
+         "precision": 0,
+         "isFiat": true,
+         "isToken": true,
+         "tokenContract": "0x368d3c5f62e6be79a536969453bf671c75ad6211"
+         "chain": "ETH",
+         "withdrawalFee": 0.001
+      }
+   ]
+}
+```
+
+This endpoint retrieves all the listed assets.
+
+### HTTP Request
+
+`GET https://<%= config[:api_domain] %>/v1/data/assets`
+
+
+## Get rates
+
+```shell
+curl "https://<%= config[:api_domain] %>/v1/data/rates"
+  -H "<%= config[:authorization_method] %>"
+```
+
+```javascript
+const <%= config[:sdk_class_name] %> = require('<%= config[:sdk_name] %>');
+
+let api = <%= config[:sdk_class_name] %>.authorize('<api_token>');
+let rates = api.rates();
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "success": true,
+  "result": {
+    "BTCEUR": {
+      "price": "4595.8",
+      "volume": "2763.49879717"
+    },
+    "ETHEUR": {
+      "price": "149.695",
+      "volume": "55317.6013"
+    }
+  }
+}
+```
+
+This endpoint retrieves all the listed rates.
+
+### HTTP Request
+
+`GET https://<%= config[:api_domain] %>/v1/data/rates`
+
+## Get candles
+
+```shell
+curl "https://<%= config[:api_domain] %>/v1/data/candles/history?symbol={ticker}&resolution=10&from=1554556417&to=1554562417"
+  -H "<%= config[:authorization_method] %>"
+```
+
+```javascript
+const <%= config[:sdk_class_name] %> = require('<%= config[:sdk_name] %>');
+
+let api = <%= config[:sdk_class_name] %>.authorize('<api_token>');
+let candles = api.candles("{ticker}");
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+   "c":[
+      "4487.95",
+      "4470.5",
+      "4475.7",
+      "4473.15",
+      "4477.85",
+      "4468.55",
+      "4465.75",
+      "4467.7",
+      "4477.1",
+      "4477.65"
+   ],
+   "h":[
+      "4487.95",
+      "4487.9",
+      "4477.45",
+      "4477.65",
+      "4484.55",
+      "4477.65",
+      "4468.65",
+      "4468.5",
+      "4479.9",
+      "4477.9"
+   ],
+   "l":[
+      "4479.45",
+      "4470.5",
+      "4470.35",
+      "4473.15",
+      "4473.1",
+      "4464.5",
+      "4465.05",
+      "4465.05",
+      "4468.2",
+      "4476.85"
+   ],
+   "o":[
+      "4479.45",
+      "4487.9",
+      "4470.35",
+      "4475.7",
+      "4473.1",
+      "4477.65",
+      "4468.55",
+      "4465.75",
+      "4468.2",
+      "4477.1"
+   ],
+   "s":"ok",
+   "t":[
+      1554556800,
+      1554557400,
+      1554558000,
+      1554558600,
+      1554559200,
+      1554559800,
+      1554560400,
+      1554561000,
+      1554561600,
+      1554562200
+   ],
+   "v":[
+      "94407.14588",
+      "103306.646376",
+      "154391.949314",
+      "88591.8501895",
+      "214283.39567",
+      "85021.556652",
+      "40803.581524",
+      "287607.2755005",
+      "576087.616531",
+      "30280.049529"
+   ]
+}                 
+```
+
+This endpoint retrieves the klines.
+
+### HTTP Request
+
+`GET https://<%= config[:api_domain] %>/v1/data/candles/history?symbol={ticker}&resolution=10&from=1554556417&to=1554562417`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+ticker | The ticker of the trading instrument
+
+## Get depth
+
+```shell
+curl "https://<%= config[:api_domain] %>/v1/data/depth"
+  -d "{ticker}"
+  -H "<%= config[:authorization_method] %>"
+```
+
+```javascript
+const <%= config[:sdk_class_name] %> = require('<%= config[:sdk_name] %>');
+
+let api = <%= config[:sdk_class_name] %>.authorize('<api_token>');
+let orderbook_side = api.orderbook("{ticker}", "{side}");
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+   "success":true,
+   "result":{
+      "asks":[
+         [
+            "4496.7",
+            "4.32495",
+            "19448.002665",
+            "19448.002665"
+         ],
+         [
+            "4498.1",
+            "0.0077",
+            "34.63537",
+            "19482.638035"
+         ],
+         [
+            "4499.2",
+            "0.3052",
+            "1373.15584",
+            "1407.79121"
+         ],
+         [
+            "4499.6",
+            "1.2432",
+            "5593.90272",
+            "6967.05856"
+         ],
+         [ ... ]
+      ]
+   }
+}
+```
+
+This endpoint retrieves the selected market depth.
+
+### HTTP Request
+
+`POST https://<%= config[:api_domain] %>/v1/data/depth`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+ticker | The ticker of the trading instrument
+
+
+## Get history
+
+```shell
+curl "https://<%= config[:api_domain] %>/v1/data/history/:ticker"
+  -d "{offset, limit}"
+  -H "<%= config[:authorization_method] %>"
+```
+
+```javascript
+const <%= config[:sdk_class_name] %> = require('<%= config[:sdk_name] %>');
+
+let api = <%= config[:sdk_class_name] %>.authorize('<api_token>');
+let history = api.history("{ticker}");
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+   "success":true,
+   "result":[
+      {
+        "time": 1545256146.774268,
+        "id": 160519,
+        "price": "0.51913934",
+        "type": "buy",
+        "amount": "15"
+      }
+   ]
+}
+```
+
+This endpoint retrieves the market history.
+
+### HTTP Request
+
+`POST https://<%= config[:api_domain] %>/v1/data/history/:ticker`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+ticker | The ticker of the trading instrument
+offset | Skip offset elements 
+limit | Length of requested data
