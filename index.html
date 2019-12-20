@@ -312,7 +312,7 @@
   -H <span class="s2">"Authorization: Bearer &lt;api_token&gt;"</span>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">Trader</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'jsmex-trader-sdk'</span><span class="p">);</span>
 
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">Trader</span><span class="p">({</span><span class="na">apiToken</span><span class="p">:</span><span class="s1">'&lt;api_token&gt;'</span><span class="p">});</span>
+<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Trader</span><span class="p">({</span><span class="na">apiToken</span><span class="p">:</span><span class="s1">'&lt;api_token&gt;'</span><span class="p">});</span>
 <span class="kd">let</span> <span class="nx">balance</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">ccxtExchanges</span><span class="p">.</span><span class="nx">jsmex</span><span class="p">.</span><span class="nx">ccxtInstance</span><span class="p">.</span><span class="nx">balance</span><span class="p">();</span>
 </code></pre>
 <blockquote>
@@ -357,7 +357,7 @@
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">// command not supported yet in JavaScript yet</span>
 <span class="c1">// const Trader = require('jsmex-trader-sdk');</span>
 <span class="c1">// </span>
-<span class="c1">// let api = Trader({apiToken:'&lt;api_token&gt;'});</span>
+<span class="c1">// let api = new Trader({apiToken:'&lt;api_token&gt;'});</span>
 <span class="c1">// let data = api.ccxtExchanges.jsmex.ccxtInstance.data();</span>
 </code></pre>
 <blockquote>
@@ -386,7 +386,7 @@
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">// command not supported in javascript yet</span>
 <span class="c1">// const Trader = require('jsmex-trader-sdk');</span>
 <span class="c1">// </span>
-<span class="c1">// let api = Trader({apiToken:'&lt;api_token&gt;'});</span>
+<span class="c1">// let api = new Trader({apiToken:'&lt;api_token&gt;'});</span>
 <span class="c1">// let type = api.ccxtExchanges.jsmex.ccxtInstance.type();</span>
 </code></pre>
 <blockquote>
@@ -450,7 +450,7 @@
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">// command not supported in javascript yet</span>
 <span class="c1">// const Trader = require('jsmex-trader-sdk');</span>
 <span class="c1">// </span>
-<span class="c1">// let api = Trader({apiToken:'&lt;api_token&gt;'});</span>
+<span class="c1">// let api = new Trader({apiToken:'&lt;api_token&gt;'});</span>
 <span class="c1">// let type = api.ccxtExchanges.jsmex.ccxtInstance.limits();</span>
 </code></pre>
 <blockquote>
@@ -565,7 +565,7 @@ Instruments — list of all the trading instruments available right now
   -H <span class="s2">"Authorization: Bearer &lt;api_token&gt;"</span>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">Trader</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'jsmex-trader-sdk'</span><span class="p">);</span>
 
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">Trader</span><span class="p">({</span><span class="na">apiToken</span><span class="p">:</span><span class="s1">'&lt;api_token&gt;'</span><span class="p">});</span>
+<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Trader</span><span class="p">({</span><span class="na">apiToken</span><span class="p">:</span><span class="s1">'&lt;api_token&gt;'</span><span class="p">});</span>
 <span class="kd">let</span> <span class="nx">assets</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">ccxtExchanges</span><span class="p">.</span><span class="nx">jsmex</span><span class="p">.</span><span class="nx">ccxtInstance</span><span class="p">.</span><span class="nx">assets</span><span class="p">();</span>
 </code></pre>
 <blockquote>
@@ -594,7 +594,7 @@ Instruments — list of all the trading instruments available right now
   -H <span class="s2">"Authorization: Bearer &lt;api_token&gt;"</span>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">Trader</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'jsmex-trader-sdk'</span><span class="p">);</span>
 
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">Trader</span><span class="p">({</span><span class="na">apiToken</span><span class="p">:</span><span class="s1">'&lt;api_token&gt;'</span><span class="p">});</span>
+<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Trader</span><span class="p">({</span><span class="na">apiToken</span><span class="p">:</span><span class="s1">'&lt;api_token&gt;'</span><span class="p">});</span>
 <span class="kd">let</span> <span class="nx">rates</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">ccxtExchanges</span><span class="p">.</span><span class="nx">jsmex</span><span class="p">.</span><span class="nx">ccxtInstance</span><span class="p">.</span><span class="nx">rates</span><span class="p">();</span>
 </code></pre>
 <blockquote>
@@ -621,8 +621,9 @@ Instruments — list of all the trading instruments available right now
   -H <span class="s2">"Authorization: Bearer &lt;api_token&gt;"</span>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">Trader</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'jsmex-trader-sdk'</span><span class="p">);</span>
 
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">Trader</span><span class="p">({</span><span class="na">apiToken</span><span class="p">:</span><span class="s1">'&lt;api_token&gt;'</span><span class="p">});</span>
-<span class="kd">let</span> <span class="nx">candles</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">ccxtExchanges</span><span class="p">.</span><span class="nx">jsmex</span><span class="p">.</span><span class="nx">ccxtInstance</span><span class="p">.</span><span class="nx">candles</span><span class="p">(</span><span class="s2">"{ticker}"</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Trader</span><span class="p">({</span><span class="na">apiToken</span><span class="p">:</span><span class="s1">'&lt;api_token&gt;'</span><span class="p">});</span>
+<span class="kd">let</span> <span class="nx">candles</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">ccxtExchanges</span><span class="p">.</span><span class="nx">jsmex</span><span class="p">.</span><span class="nx">ccxtInstance</span><span class="p">.</span><span class="nx">fetchOHLCV</span><span class="p">(</span><span class="s2">"{ticker}"</span><span class="p">);</span> 
+<span class="c1">// kline format, checkout ccxt format for this call. I'll split this in two API</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -723,8 +724,8 @@ Instruments — list of all the trading instruments available right now
   -H <span class="s2">"Authorization: Bearer &lt;api_token&gt;"</span>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">Trader</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'jsmex-trader-sdk'</span><span class="p">);</span>
 
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">Trader</span><span class="p">({</span><span class="na">apiToken</span><span class="p">:</span><span class="s1">'&lt;api_token&gt;'</span><span class="p">});</span>
-<span class="kd">let</span> <span class="nx">orderbook_side</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">ccxtExchanges</span><span class="p">.</span><span class="nx">jsmex</span><span class="p">.</span><span class="nx">ccxtInstance</span><span class="p">.</span><span class="nx">orderbook</span><span class="p">(</span><span class="s2">"{ticker}"</span><span class="p">,</span> <span class="s2">"{side}"</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Trader</span><span class="p">({</span><span class="na">apiToken</span><span class="p">:</span><span class="s1">'&lt;api_token&gt;'</span><span class="p">});</span>
+<span class="kd">let</span> <span class="nx">orderbook_side</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">ccxtExchanges</span><span class="p">.</span><span class="nx">jsmex</span><span class="p">.</span><span class="nx">ccxtInstance</span><span class="p">.</span><span class="nx">fetchOrderBook</span><span class="p">(</span><span class="nx">ticker</span><span class="p">,</span> <span class="nx">params</span> <span class="o">=</span> <span class="p">{});</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -782,7 +783,7 @@ Instruments — list of all the trading instruments available right now
   -H <span class="s2">"Authorization: Bearer &lt;api_token&gt;"</span>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">Trader</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'jsmex-trader-sdk'</span><span class="p">);</span>
 
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">Trader</span><span class="p">({</span><span class="na">apiToken</span><span class="p">:</span><span class="s1">'&lt;api_token&gt;'</span><span class="p">});</span>
+<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Trader</span><span class="p">({</span><span class="na">apiToken</span><span class="p">:</span><span class="s1">'&lt;api_token&gt;'</span><span class="p">});</span>
 <span class="kd">let</span> <span class="nx">history</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">ccxtExchanges</span><span class="p">.</span><span class="nx">jsmex</span><span class="p">.</span><span class="nx">ccxtInstance</span><span class="p">.</span><span class="nx">history</span><span class="p">(</span><span class="s2">"{ticker}"</span><span class="p">);</span>
 </code></pre>
 <blockquote>
@@ -831,7 +832,7 @@ Instruments — list of all the trading instruments available right now
   -H <span class="s2">"Authorization: Bearer &lt;api_token&gt;"</span>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">Trader</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'jsmex-trader-sdk'</span><span class="p">);</span>
 
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">Trader</span><span class="p">({</span><span class="na">apiToken</span><span class="p">:</span><span class="s1">'&lt;api_token&gt;'</span><span class="p">});</span>
+<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Trader</span><span class="p">({</span><span class="na">apiToken</span><span class="p">:</span><span class="s1">'&lt;api_token&gt;'</span><span class="p">});</span>
 <span class="kd">let</span> <span class="nx">candles</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">ccxtExchanges</span><span class="p">.</span><span class="nx">jsmex</span><span class="p">.</span><span class="nx">ccxtInstance</span><span class="p">.</span><span class="nx">orderCreate</span><span class="p">(</span><span class="nx">market</span><span class="p">,</span> <span class="nx">type</span><span class="p">,</span> <span class="nx">side</span><span class="p">,</span> <span class="nx">amount</span><span class="p">,</span> <span class="nx">price</span><span class="p">,</span> <span class="nx">params</span><span class="o">=</span><span class="p">{});</span>
 </code></pre>
 <blockquote>
@@ -894,7 +895,7 @@ Instruments — list of all the trading instruments available right now
   -H <span class="s2">"Authorization: Bearer &lt;api_token&gt;"</span>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">Trader</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'jsmex-trader-sdk'</span><span class="p">);</span>
 
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">Trader</span><span class="p">({</span><span class="na">apiToken</span><span class="p">:</span><span class="s1">'&lt;api_token&gt;'</span><span class="p">});</span>
+<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Trader</span><span class="p">({</span><span class="na">apiToken</span><span class="p">:</span><span class="s1">'&lt;api_token&gt;'</span><span class="p">});</span>
 <span class="kd">let</span> <span class="nx">pendings</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">ccxtExchanges</span><span class="p">.</span><span class="nx">jsmex</span><span class="p">.</span><span class="nx">ccxtInstance</span><span class="p">.</span><span class="nx">orderPendings</span><span class="p">(</span><span class="nx">ticker</span><span class="p">,</span> <span class="nx">offset</span><span class="p">,</span> <span class="nx">limit</span><span class="p">,</span> <span class="nx">params</span> <span class="o">=</span><span class="p">{});</span>
 </code></pre>
 <blockquote>
@@ -945,7 +946,7 @@ Instruments — list of all the trading instruments available right now
   -H <span class="s2">"Authorization: Bearer &lt;api_token&gt;"</span>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">Trader</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'jsmex-trader-sdk'</span><span class="p">);</span>
 
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">Trader</span><span class="p">({</span><span class="na">apiToken</span><span class="p">:</span><span class="s1">'&lt;api_token&gt;'</span><span class="p">});</span>
+<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Trader</span><span class="p">({</span><span class="na">apiToken</span><span class="p">:</span><span class="s1">'&lt;api_token&gt;'</span><span class="p">});</span>
 <span class="kd">let</span> <span class="nx">cancel</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">ccxtExchanges</span><span class="p">.</span><span class="nx">jsmex</span><span class="p">.</span><span class="nx">ccxtInstance</span><span class="p">.</span><span class="nx">orderCancel</span><span class="p">(</span><span class="s2">"{ticker}"</span><span class="p">,</span> <span class="s2">"{id}"</span><span class="p">,</span> <span class="s2">"{defaultAccount:-default}"</span><span class="p">);</span>
 </code></pre>
 <blockquote>
@@ -994,7 +995,7 @@ Instruments — list of all the trading instruments available right now
   -H <span class="s2">"Authorization: Bearer &lt;api_token&gt;"</span>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">Trader</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'jsmex-trader-sdk'</span><span class="p">);</span>
 
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">Trader</span><span class="p">({</span><span class="na">apiToken</span><span class="p">:</span><span class="s1">'&lt;api_token&gt;'</span><span class="p">});</span>
+<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Trader</span><span class="p">({</span><span class="na">apiToken</span><span class="p">:</span><span class="s1">'&lt;api_token&gt;'</span><span class="p">});</span>
 <span class="kd">let</span> <span class="nx">cancel</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">ccxtExchanges</span><span class="p">.</span><span class="nx">jsmex</span><span class="p">.</span><span class="nx">ccxtInstance</span><span class="p">.</span><span class="nx">transactionHistory</span><span class="p">(</span><span class="nx">ticker</span><span class="p">,</span> <span class="nx">offset</span><span class="p">,</span> <span class="nx">limit</span><span class="p">);</span>
 </code></pre>
 <blockquote>
@@ -1045,7 +1046,7 @@ Instruments — list of all the trading instruments available right now
   -H <span class="s2">"Authorization: Bearer &lt;api_token&gt;"</span>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">Trader</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'jsmex-trader-sdk'</span><span class="p">);</span>
 
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">Trader</span><span class="p">({</span><span class="na">apiToken</span><span class="p">:</span><span class="s1">'&lt;api_token&gt;'</span><span class="p">});</span>
+<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Trader</span><span class="p">({</span><span class="na">apiToken</span><span class="p">:</span><span class="s1">'&lt;api_token&gt;'</span><span class="p">});</span>
 <span class="kd">let</span> <span class="nx">deposit_address</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">ccxtExchanges</span><span class="p">.</span><span class="nx">jsmex</span><span class="p">.</span><span class="nx">ccxtInstance</span><span class="p">.</span><span class="nx">createDepositAddress</span><span class="p">(</span><span class="s2">"{asset}"</span><span class="p">);</span>
 </code></pre>
 <blockquote>
@@ -1088,7 +1089,7 @@ Instruments — list of all the trading instruments available right now
   -H <span class="s2">"Authorization: Bearer &lt;api_token&gt;"</span>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">Trader</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'jsmex-trader-sdk'</span><span class="p">);</span>
 
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">Trader</span><span class="p">({</span><span class="na">apiToken</span><span class="p">:</span><span class="s1">'&lt;api_token&gt;'</span><span class="p">});</span>
+<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Trader</span><span class="p">({</span><span class="na">apiToken</span><span class="p">:</span><span class="s1">'&lt;api_token&gt;'</span><span class="p">});</span>
 <span class="kd">let</span> <span class="nx">wrequest</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">ccxtExchanges</span><span class="p">.</span><span class="nx">jsmex</span><span class="p">.</span><span class="nx">ccxtInstance</span><span class="p">.</span><span class="nx">withdrawalRequest</span><span class="p">(</span><span class="s2">"{assets, amount, address, validation}"</span><span class="p">);</span>
 </code></pre>
 <blockquote>
@@ -1130,9 +1131,9 @@ Instruments — list of all the trading instruments available right now
   -H <span class="s2">"Authorization: Bearer &lt;api_token&gt;"</span>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">Trader</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'jsmex-trader-sdk'</span><span class="p">);</span>
 
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">Trader</span><span class="p">({</span><span class="na">apiToken</span><span class="p">:</span><span class="s1">'&lt;api_token&gt;'</span><span class="p">});</span>
-<span class="kd">let</span> <span class="nx">deposits</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">ccxtExchanges</span><span class="p">.</span><span class="nx">jsmex</span><span class="p">.</span><span class="nx">ccxtInstance</span><span class="p">.</span><span class="nx">fetchDeposits</span><span class="p">(</span><span class="s2">"{offset:0, limit:20}"</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">withdrawals</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">ccxtExchanges</span><span class="p">.</span><span class="nx">jsmex</span><span class="p">.</span><span class="nx">ccxtInstance</span><span class="p">.</span><span class="nx">fetchWithdrawals</span><span class="p">(</span><span class="s2">"{offset:0, limit:20}"</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Trader</span><span class="p">({</span><span class="na">apiToken</span><span class="p">:</span><span class="s1">'&lt;api_token&gt;'</span><span class="p">});</span>
+<span class="kd">let</span> <span class="nx">deposits</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">ccxtExchanges</span><span class="p">.</span><span class="nx">jsmex</span><span class="p">.</span><span class="nx">ccxtInstance</span><span class="p">.</span><span class="nx">fetchDeposits</span><span class="p">(</span> <span class="nx">action</span><span class="p">,</span> <span class="nx">params</span> <span class="o">=</span> <span class="p">{</span><span class="na">offset</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="na">limit</span><span class="p">:</span><span class="mi">20</span><span class="p">});</span>
+<span class="kd">let</span> <span class="nx">withdrawals</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">ccxtExchanges</span><span class="p">.</span><span class="nx">jsmex</span><span class="p">.</span><span class="nx">ccxtInstance</span><span class="p">.</span><span class="nx">fetchWithdrawals</span><span class="p">(</span> <span class="nx">action</span><span class="p">,</span> <span class="nx">params</span> <span class="o">=</span> <span class="p">{</span><span class="na">offset</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="na">limit</span><span class="p">:</span><span class="mi">20</span><span class="p">});</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
