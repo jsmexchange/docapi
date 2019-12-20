@@ -10,8 +10,8 @@ curl "https://<%= config[:api_domain] %>/v1/user/balance"
 ```javascript
 const <%= config[:sdk_class_name] %> = require('<%= config[:sdk_name] %>');
 
-let api = <%= config[:sdk_class_name] %>.authorize('<api_token>');
-let balance = api.balance();
+let api = <%= config[:sdk_class_name] %>({apiToken:'<api_token>'});
+let balance = api.ccxtExchanges.jsmex.ccxtInstance.balance();
 ```
 
 > The above command returns JSON structured like this:
@@ -63,10 +63,11 @@ curl "https://<%= config[:api_domain] %>/v1/user/data"
 ```
 
 ```javascript
-const <%= config[:sdk_class_name] %> = require('<%= config[:sdk_name] %>');
-
-let api = <%= config[:sdk_class_name] %>.authorize('<api_token>');
-let data = api.data();
+// command not supported yet in JavaScript yet
+// const <%= config[:sdk_class_name] %> = require('<%= config[:sdk_name] %>');
+// 
+// let api = <%= config[:sdk_class_name] %>({apiToken:'<api_token>'});
+// let data = api.ccxtExchanges.jsmex.ccxtInstance.data();
 ```
 
 > The above command returns JSON structured like this:
@@ -102,10 +103,11 @@ curl "https://<%= config[:api_domain] %>/v1/user/type"
 ```
 
 ```javascript
-const <%= config[:sdk_class_name] %> = require('<%= config[:sdk_name] %>');
-
-let api = <%= config[:sdk_class_name] %>.authorize('<api_token>');
-let type = api.type();
+// command not supported in javascript yet
+// const <%= config[:sdk_class_name] %> = require('<%= config[:sdk_name] %>');
+// 
+// let api = <%= config[:sdk_class_name] %>({apiToken:'<api_token>'});
+// let type = api.ccxtExchanges.jsmex.ccxtInstance.type();
 ```
 
 > The above command returns JSON structured like this:
@@ -176,10 +178,11 @@ curl "https://<%= config[:api_domain] %>/v1/user/limits"
 ```
 
 ```javascript
-const <%= config[:sdk_class_name] %> = require('<%= config[:sdk_name] %>');
-
-let api = <%= config[:sdk_class_name] %>.authorize('<api_token>');
-let type = api.limits();
+// command not supported in javascript yet
+// const <%= config[:sdk_class_name] %> = require('<%= config[:sdk_name] %>');
+// 
+// let api = <%= config[:sdk_class_name] %>({apiToken:'<api_token>'});
+// let type = api.ccxtExchanges.jsmex.ccxtInstance.limits();
 ```
 
 > The above command returns JSON structured like this:
@@ -250,46 +253,4 @@ let type = api.limits();
 }
 ```
 
-This endpoint retrieves account kyc limitations.
-
-### HTTP Request
-
-`GET https://<%= config[:api_domain] %>/v1/user/limits`
-
-## Get workspace 
-
-```shell
-curl "https://<%= config[:api_domain] %>/v1/user/workspace"
-  -H "<%= config[:authorization_method] %>"
-```
-
-```javascript
-const <%= config[:sdk_class_name] %> = require('<%= config[:sdk_name] %>');
-
-let api = <%= config[:sdk_class_name] %>.authorize('<api_token>');
-let type = api.workspace();
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "success": true,
-  "result": [
-    {
-      "address": "0xcdd5bdae31d6a92dc83b30e33cde826777b94ee4",
-      "name": "wcqedwdw",
-      "order": "0",
-      "haveprivetekey": "true",
-      "chain": "ETH"
-    }
-  ]
-}
-```
-
-This endpoint retrieves the list of jsmex accounts listed in your workspace.
-
-### HTTP Request
-
-`GET https://<%= config[:api_domain] %>/v1/user/workspace`
-
+This endpoint retrieves account account limits.

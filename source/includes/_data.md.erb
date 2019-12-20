@@ -10,8 +10,8 @@ curl "https://<%= config[:api_domain] %>/v1/data/instruments"
 ```javascript
 const <%= config[:sdk_class_name] %> = require('<%= config[:sdk_name] %>');
 
-let api = <%= config[:sdk_class_name] %>.authorize('<api_token>');
-let instruments = api.instruments();
+let api = new <%= config[:sdk_class_name] %>({apiToken:'<api_token>'});
+let instruments = api.ccxtExchanges.jsmex.ccxtInstance.fetchMarkets();
 ```
 
 > The above command returns JSON structured like this:
@@ -62,8 +62,8 @@ curl "https://<%= config[:api_domain] %>/v1/data/assets"
 ```javascript
 const <%= config[:sdk_class_name] %> = require('<%= config[:sdk_name] %>');
 
-let api = <%= config[:sdk_class_name] %>.authorize('<api_token>');
-let assets = api.assets();
+let api = <%= config[:sdk_class_name] %>({apiToken:'<api_token>'});
+let assets = api.ccxtExchanges.jsmex.ccxtInstance.assets();
 ```
 
 > The above command returns JSON structured like this:
@@ -103,8 +103,8 @@ curl "https://<%= config[:api_domain] %>/v1/data/rates"
 ```javascript
 const <%= config[:sdk_class_name] %> = require('<%= config[:sdk_name] %>');
 
-let api = <%= config[:sdk_class_name] %>.authorize('<api_token>');
-let rates = api.rates();
+let api = <%= config[:sdk_class_name] %>({apiToken:'<api_token>'});
+let rates = api.ccxtExchanges.jsmex.ccxtInstance.rates();
 ```
 
 > The above command returns JSON structured like this:
@@ -141,8 +141,8 @@ curl "https://<%= config[:api_domain] %>/v1/data/candles/history?symbol={ticker}
 ```javascript
 const <%= config[:sdk_class_name] %> = require('<%= config[:sdk_name] %>');
 
-let api = <%= config[:sdk_class_name] %>.authorize('<api_token>');
-let candles = api.candles("{ticker}");
+let api = <%= config[:sdk_class_name] %>({apiToken:'<api_token>'});
+let candles = api.ccxtExchanges.jsmex.ccxtInstance.candles("{ticker}");
 ```
 
 > The above command returns JSON structured like this:
@@ -248,8 +248,8 @@ curl "https://<%= config[:api_domain] %>/v1/data/depth"
 ```javascript
 const <%= config[:sdk_class_name] %> = require('<%= config[:sdk_name] %>');
 
-let api = <%= config[:sdk_class_name] %>.authorize('<api_token>');
-let orderbook_side = api.orderbook("{ticker}", "{side}");
+let api = <%= config[:sdk_class_name] %>({apiToken:'<api_token>'});
+let orderbook_side = api.ccxtExchanges.jsmex.ccxtInstance.orderbook("{ticker}", "{side}");
 ```
 
 > The above command returns JSON structured like this:
@@ -313,8 +313,8 @@ curl "https://<%= config[:api_domain] %>/v1/data/history/:ticker"
 ```javascript
 const <%= config[:sdk_class_name] %> = require('<%= config[:sdk_name] %>');
 
-let api = <%= config[:sdk_class_name] %>.authorize('<api_token>');
-let history = api.history("{ticker}");
+let api = <%= config[:sdk_class_name] %>({apiToken:'<api_token>'});
+let history = api.ccxtExchanges.jsmex.ccxtInstance.history("{ticker}");
 ```
 
 > The above command returns JSON structured like this:

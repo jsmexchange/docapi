@@ -56,8 +56,8 @@ set :port, 4567
 set :exchange_name, 'Jsmex Exchange'
 set :exchange_domain, 'jsmex.io'
 set :api_domain, 'api.jsmex.io'
-set :sdk_name, 'jsmexxapi'
-set :sdk_class_name, 'JsmexApi'
+set :sdk_name, 'jsmex-trader-sdk'
+set :sdk_class_name, 'Trader'
 set :authorization_method, 'Authorization: Bearer <api_token>'
 config[:exchange_domain]
 config[:api_domain]
