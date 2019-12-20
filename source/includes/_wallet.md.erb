@@ -10,7 +10,7 @@ curl "https://<%= config[:api_domain] %>/v1/wallet/depositAddress/:asset"
 ```javascript
 const <%= config[:sdk_class_name] %> = require('<%= config[:sdk_name] %>');
 
-let api = <%= config[:sdk_class_name] %>({apiToken:'<api_token>'});
+let api = new <%= config[:sdk_class_name] %>({apiToken:'<api_token>'});
 let deposit_address = api.ccxtExchanges.jsmex.ccxtInstance.createDepositAddress("{asset}");
 ```
 
@@ -52,7 +52,7 @@ curl "https://<%= config[:api_domain] %>/v1/wallet/withdrawal/:asset"
 ```javascript
 const <%= config[:sdk_class_name] %> = require('<%= config[:sdk_name] %>');
 
-let api = <%= config[:sdk_class_name] %>({apiToken:'<api_token>'});
+let api = new <%= config[:sdk_class_name] %>({apiToken:'<api_token>'});
 let wrequest = api.ccxtExchanges.jsmex.ccxtInstance.withdrawalRequest("{assets, amount, address, validation}");
 ```
 
@@ -91,9 +91,9 @@ curl "https://<%= config[:api_domain] %>/v1/wallet/data"
 ```javascript
 const <%= config[:sdk_class_name] %> = require('<%= config[:sdk_name] %>');
 
-let api = <%= config[:sdk_class_name] %>({apiToken:'<api_token>'});
-let deposits = api.ccxtExchanges.jsmex.ccxtInstance.fetchDeposits("{offset:0, limit:20}");
-let withdrawals = api.ccxtExchanges.jsmex.ccxtInstance.fetchWithdrawals("{offset:0, limit:20}");
+let api = new <%= config[:sdk_class_name] %>({apiToken:'<api_token>'});
+let deposits = api.ccxtExchanges.jsmex.ccxtInstance.fetchDeposits( action, params = {offset:0, limit:20});
+let withdrawals = api.ccxtExchanges.jsmex.ccxtInstance.fetchWithdrawals( action, params = {offset:0, limit:20});
 ```
 
 > The above command returns JSON structured like this:

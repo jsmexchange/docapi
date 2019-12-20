@@ -10,7 +10,7 @@ curl "https://<%= config[:api_domain] %>/v1/user/balance"
 ```javascript
 const <%= config[:sdk_class_name] %> = require('<%= config[:sdk_name] %>');
 
-let api = <%= config[:sdk_class_name] %>({apiToken:'<api_token>'});
+let api = new <%= config[:sdk_class_name] %>({apiToken:'<api_token>'});
 let balance = api.ccxtExchanges.jsmex.ccxtInstance.balance();
 ```
 
@@ -66,7 +66,7 @@ curl "https://<%= config[:api_domain] %>/v1/user/data"
 // command not supported yet in JavaScript yet
 // const <%= config[:sdk_class_name] %> = require('<%= config[:sdk_name] %>');
 // 
-// let api = <%= config[:sdk_class_name] %>({apiToken:'<api_token>'});
+// let api = new <%= config[:sdk_class_name] %>({apiToken:'<api_token>'});
 // let data = api.ccxtExchanges.jsmex.ccxtInstance.data();
 ```
 
@@ -106,7 +106,7 @@ curl "https://<%= config[:api_domain] %>/v1/user/type"
 // command not supported in javascript yet
 // const <%= config[:sdk_class_name] %> = require('<%= config[:sdk_name] %>');
 // 
-// let api = <%= config[:sdk_class_name] %>({apiToken:'<api_token>'});
+// let api = new <%= config[:sdk_class_name] %>({apiToken:'<api_token>'});
 // let type = api.ccxtExchanges.jsmex.ccxtInstance.type();
 ```
 
@@ -181,7 +181,7 @@ curl "https://<%= config[:api_domain] %>/v1/user/limits"
 // command not supported in javascript yet
 // const <%= config[:sdk_class_name] %> = require('<%= config[:sdk_name] %>');
 // 
-// let api = <%= config[:sdk_class_name] %>({apiToken:'<api_token>'});
+// let api = new <%= config[:sdk_class_name] %>({apiToken:'<api_token>'});
 // let type = api.ccxtExchanges.jsmex.ccxtInstance.limits();
 ```
 

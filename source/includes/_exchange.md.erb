@@ -13,7 +13,7 @@ curl "https://<%= config[:api_domain] %>/v1/exchange/order"
 ```javascript
 const <%= config[:sdk_class_name] %> = require('<%= config[:sdk_name] %>');
 
-let api = <%= config[:sdk_class_name] %>({apiToken:'<api_token>'});
+let api = new <%= config[:sdk_class_name] %>({apiToken:'<api_token>'});
 let candles = api.ccxtExchanges.jsmex.ccxtInstance.orderCreate(market, type, side, amount, price, params={});
 ```
 
@@ -66,7 +66,7 @@ curl "https://<%= config[:api_domain] %>/v1/exchange/order"
 ```javascript
 const <%= config[:sdk_class_name] %> = require('<%= config[:sdk_name] %>');
 
-let api = <%= config[:sdk_class_name] %>({apiToken:'<api_token>'});
+let api = new <%= config[:sdk_class_name] %>({apiToken:'<api_token>'});
 let pendings = api.ccxtExchanges.jsmex.ccxtInstance.orderPendings(ticker, offset, limit, params ={});
 ```
 
@@ -117,7 +117,7 @@ curl "https://<%= config[:api_domain] %>/v1/exchange/order/:ticker/:id"
 ```javascript
 const <%= config[:sdk_class_name] %> = require('<%= config[:sdk_name] %>');
 
-let api = <%= config[:sdk_class_name] %>({apiToken:'<api_token>'});
+let api = new <%= config[:sdk_class_name] %>({apiToken:'<api_token>'});
 let cancel = api.ccxtExchanges.jsmex.ccxtInstance.orderCancel("{ticker}", "{id}", "{defaultAccount:-default}");
 ```
 
@@ -165,7 +165,7 @@ curl "https://<%= config[:api_domain] %>/v1/exchange/history"
 ```javascript
 const <%= config[:sdk_class_name] %> = require('<%= config[:sdk_name] %>');
 
-let api = <%= config[:sdk_class_name] %>({apiToken:'<api_token>'});
+let api = new <%= config[:sdk_class_name] %>({apiToken:'<api_token>'});
 let cancel = api.ccxtExchanges.jsmex.ccxtInstance.transactionHistory(ticker, offset, limit);
 ```
 

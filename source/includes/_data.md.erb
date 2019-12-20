@@ -62,7 +62,7 @@ curl "https://<%= config[:api_domain] %>/v1/data/assets"
 ```javascript
 const <%= config[:sdk_class_name] %> = require('<%= config[:sdk_name] %>');
 
-let api = <%= config[:sdk_class_name] %>({apiToken:'<api_token>'});
+let api = new <%= config[:sdk_class_name] %>({apiToken:'<api_token>'});
 let assets = api.ccxtExchanges.jsmex.ccxtInstance.assets();
 ```
 
@@ -103,7 +103,7 @@ curl "https://<%= config[:api_domain] %>/v1/data/rates"
 ```javascript
 const <%= config[:sdk_class_name] %> = require('<%= config[:sdk_name] %>');
 
-let api = <%= config[:sdk_class_name] %>({apiToken:'<api_token>'});
+let api = new <%= config[:sdk_class_name] %>({apiToken:'<api_token>'});
 let rates = api.ccxtExchanges.jsmex.ccxtInstance.rates();
 ```
 
@@ -141,8 +141,9 @@ curl "https://<%= config[:api_domain] %>/v1/data/candles/history?symbol={ticker}
 ```javascript
 const <%= config[:sdk_class_name] %> = require('<%= config[:sdk_name] %>');
 
-let api = <%= config[:sdk_class_name] %>({apiToken:'<api_token>'});
-let candles = api.ccxtExchanges.jsmex.ccxtInstance.candles("{ticker}");
+let api = new <%= config[:sdk_class_name] %>({apiToken:'<api_token>'});
+let candles = api.ccxtExchanges.jsmex.ccxtInstance.fetchOHLCV("{ticker}"); 
+// kline format, checkout ccxt format for this call. I'll split this in two API
 ```
 
 > The above command returns JSON structured like this:
@@ -248,8 +249,8 @@ curl "https://<%= config[:api_domain] %>/v1/data/depth"
 ```javascript
 const <%= config[:sdk_class_name] %> = require('<%= config[:sdk_name] %>');
 
-let api = <%= config[:sdk_class_name] %>({apiToken:'<api_token>'});
-let orderbook_side = api.ccxtExchanges.jsmex.ccxtInstance.orderbook("{ticker}", "{side}");
+let api = new <%= config[:sdk_class_name] %>({apiToken:'<api_token>'});
+let orderbook_side = api.ccxtExchanges.jsmex.ccxtInstance.fetchOrderBook(ticker, params = {});
 ```
 
 > The above command returns JSON structured like this:
@@ -313,7 +314,7 @@ curl "https://<%= config[:api_domain] %>/v1/data/history/:ticker"
 ```javascript
 const <%= config[:sdk_class_name] %> = require('<%= config[:sdk_name] %>');
 
-let api = <%= config[:sdk_class_name] %>({apiToken:'<api_token>'});
+let api = new <%= config[:sdk_class_name] %>({apiToken:'<api_token>'});
 let history = api.ccxtExchanges.jsmex.ccxtInstance.history("{ticker}");
 ```
 
