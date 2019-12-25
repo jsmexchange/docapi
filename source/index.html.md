@@ -10,8 +10,8 @@ toc_footers:
 
 includes:
   - introduction
-  - user
   - data
+  - user
   - exchange
   - wallet
   - errors
