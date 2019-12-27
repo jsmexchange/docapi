@@ -82,7 +82,7 @@ This endpoint retrieves all the trading instruments.
 
 ### HTTP Request
 
-`GET https://<%= config[:api_domain] %>/v1/data/instruments`
+`GET https://<%= config[:api_domain] %>/v1/tracker/summary`
 
 <aside class="success">
 Summary — list of all the trading instruments and assets available right now
@@ -140,7 +140,7 @@ curl "https://<%= config[:api_domain] %>/v1/tracker/tickers"
 
 ### HTTP Request
 
-`GET https://<%= config[:api_domain] %>/v1/data/instruments`
+`GET https://<%= config[:api_domain] %>/v1/tracker/tickers`
 
 <aside class="success">
 Tickers — list of all the trading instruments available right now
@@ -191,12 +191,12 @@ This endpoint retrieves all the listed assets.
 
 ### HTTP Request
 
-`GET https://<%= config[:api_domain] %>/v1/data/assets`
+`GET https://<%= config[:api_domain] %>/v1/tracker/assets`
 
 ## Get depth
 
 ```shell
-curl "https://<%= config[:api_domain] %>/v1/data/depth"
+curl "https://<%= config[:api_domain] %>/v1/tracker/depth"
   -d "{ticker}"
 ```
 
@@ -209,10 +209,10 @@ curl "https://<%= config[:api_domain] %>/v1/data/depth"
    "result":{
       "asks":[
          [
-            "4496.7",
-            "4.32495",
-            "19448.002665",
-            "19448.002665"
+            "4496.7", // price
+            "4.32495", // amount
+            "19448.002665", // deal value
+            "19448.002665" // cumulated deal value
          ],
          [
             "4498.1",
@@ -245,7 +245,7 @@ This endpoint retrieves the selected market depth.
 
 ### HTTP Request
 
-`POST https://<%= config[:api_domain] %>/v1/data/depth`
+`POST https://<%= config[:api_domain] %>/v1/tracker/depth`
 
 ### URL Parameters
 
@@ -257,7 +257,7 @@ ticker | The ticker of the trading instrument
 ## Get history
 
 ```shell
-curl "https://<%= config[:api_domain] %>/v1/data/history"
+curl "https://<%= config[:api_domain] %>/v1/tracker/history"
   -d "{ticker, offset, limit}"
 ```
 
@@ -283,7 +283,7 @@ This endpoint retrieves the market history.
 
 ### HTTP Request
 
-`POST https://<%= config[:api_domain] %>/v1/data/history/:ticker`
+`POST https://<%= config[:api_domain] %>/v1/tracker/history`
 
 ### URL Parameters
 
