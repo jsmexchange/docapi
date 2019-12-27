@@ -1,0 +1,294 @@
+# Tracker v1
+
+## Get summary
+
+```shell
+curl "https://<%= config[:api_domain] %>/v1/tracker/summary"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+   "success": true,
+   "result": {
+      "tickers": {
+         "BTC_USDT": {
+            "stock": {
+                  "alias": "BTC",
+                  "precision": 5
+            },
+            "money": {
+                  "alias": "USDT",
+                  "precision": 5
+            },
+            "ticker": "BTCUSDT",
+            "options": {
+                  "decimal_precision": 5,
+                  "stock_precision": 5,
+                  "money_precision": 5,
+                  "min_amount_pow": 6,
+                  "max_amount_pow": 8
+            },
+            "offline_trading_fee": "0.0025",
+            "status": {
+                  "low": "6509.5",
+                  "open": "6509.5",
+                  "high": "6509.5",
+                  "last": "6509.5",
+                  "deal": "101.67839",
+                  "volume": "0.01562",
+                  "ticker": "BTCUSDT",
+                  "close": "6509.5",
+                  "change": "+0.00%"
+            },
+            "quote": "BTC",
+            "base": "USDT",
+            "symbol": "BTC_USDT"
+         }
+      }
+      "assets": {
+         "USDT": {
+               "unifiedCryptoAsset": 825,
+               "asset": "usdt",
+               "alias": "USDT",
+               "precision": 6,
+               "isToken": true,
+               "tokenContract": "0xdac17f958d2ee523a2206206994597c13d831ec7 ",
+               "isFiat": false,
+               "chain": "ETH",
+               "deposit": true,
+               "withdrawal": true,
+               "withdrawalFee": 0.001
+         },
+         "BTC": {
+               "unifiedCryptoAsset": 1,
+               "asset": "bitcoin",
+               "alias": "BTC",
+               "precision": 8,
+               "isToken": false,
+               "isFiat": false,
+               "chain": "BTC",
+               "deposit": true,
+               "withdrawal": true,
+               "withdrawalFee": 0.001
+         }
+      }
+   }
+}
+```
+
+This endpoint retrieves all the trading instruments.
+
+### HTTP Request
+
+`GET https://<%= config[:api_domain] %>/v1/data/instruments`
+
+<aside class="success">
+Summary — list of all the trading instruments and assets available right now
+</aside>
+
+
+## Get tickers
+
+```shell
+curl "https://<%= config[:api_domain] %>/v1/tracker/tickers"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+   "success": true,
+   "result": {
+      "BTC_USDT": {
+         "stock": {
+               "alias": "BTC",
+               "precision": 5
+         },
+         "money": {
+               "alias": "USDT",
+               "precision": 5
+         },
+         "ticker": "BTCUSDT",
+         "options": {
+               "decimal_precision": 5,
+               "stock_precision": 5,
+               "money_precision": 5,
+               "min_amount_pow": 6,
+               "max_amount_pow": 8
+         },
+         "offline_trading_fee": "0.0025",
+         "status": {
+               "low": "6509.5",
+               "open": "6509.5",
+               "high": "6509.5",
+               "last": "6509.5",
+               "deal": "101.67839",
+               "volume": "0.01562",
+               "ticker": "BTCUSDT",
+               "close": "6509.5",
+               "change": "+0.00%"
+         },
+         "quote": "BTC",
+         "base": "USDT",
+         "symbol": "BTC_USDT"
+      }
+   }
+}
+```
+
+### HTTP Request
+
+`GET https://<%= config[:api_domain] %>/v1/data/instruments`
+
+<aside class="success">
+Tickers — list of all the trading instruments available right now
+</aside>
+
+## Get assets
+
+```shell
+curl "https://<%= config[:api_domain] %>/v1/tracker/assets"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+   "success":true,
+   "result":{
+      "USDT": {
+            "unifiedCryptoAsset": 825,
+            "asset": "usdt",
+            "alias": "USDT",
+            "precision": 6,
+            "isToken": true,
+            "tokenContract": "0xdac17f958d2ee523a2206206994597c13d831ec7 ",
+            "isFiat": false,
+            "chain": "ETH",
+            "deposit": true,
+            "withdrawal": true,
+            "withdrawalFee": 0.001
+      },
+      "BTC": {
+            "unifiedCryptoAsset": 1,
+            "asset": "bitcoin",
+            "alias": "BTC",
+            "precision": 8,
+            "isToken": false,
+            "isFiat": false,
+            "chain": "BTC",
+            "deposit": true,
+            "withdrawal": true,
+            "withdrawalFee": 0.001
+      }
+   }
+}
+```
+
+This endpoint retrieves all the listed assets.
+
+### HTTP Request
+
+`GET https://<%= config[:api_domain] %>/v1/data/assets`
+
+## Get depth
+
+```shell
+curl "https://<%= config[:api_domain] %>/v1/data/depth"
+  -d "{ticker}"
+```
+
+
+> The above command returns JSON structured like this:
+
+```json
+{
+   "success":true,
+   "result":{
+      "asks":[
+         [
+            "4496.7",
+            "4.32495",
+            "19448.002665",
+            "19448.002665"
+         ],
+         [
+            "4498.1",
+            "0.0077",
+            "34.63537",
+            "19482.638035"
+         ],
+         [
+            "4499.2",
+            "0.3052",
+            "1373.15584",
+            "1407.79121"
+         ],
+         [
+            "4499.6",
+            "1.2432",
+            "5593.90272",
+            "6967.05856"
+         ],
+         [ ... ]
+      ]
+      "bids":[
+         [ ... ]
+      ]
+   }
+}
+```
+
+This endpoint retrieves the selected market depth.
+
+### HTTP Request
+
+`POST https://<%= config[:api_domain] %>/v1/data/depth`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+ticker | The ticker of the trading instrument
+
+
+## Get history
+
+```shell
+curl "https://<%= config[:api_domain] %>/v1/data/history"
+  -d "{ticker, offset, limit}"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+   "success":true,
+   "result":[
+      {
+        "time": 1545256146.774268,
+        "id": 160519,
+        "price": "0.51913934",
+        "type": "buy",
+        "amount": "15",
+        "market": "BTCUSDT"
+      }
+   ]
+}
+```
+
+This endpoint retrieves the market history.
+
+### HTTP Request
+
+`POST https://<%= config[:api_domain] %>/v1/data/history/:ticker`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+ticker | The ticker of the trading instrument
+offset | Skip offset elements 
+limit | Length of requested data
