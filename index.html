@@ -416,7 +416,7 @@ Check out jsmex-trader-sdk (https://www.npmjs.com/package/jsmex-trader-sdk) on n
 </span></code></pre>
 <p>This endpoint retrieves all the trading instruments.</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>GET https://api.jsmex.io/v1/data/instruments</code></p>
+<p><code>GET https://api.jsmex.io/v1/tracker/summary</code></p>
 
 <aside class="success">
 Summary — list of all the trading instruments and assets available right now
@@ -465,7 +465,7 @@ Summary — list of all the trading instruments and assets available right now
    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET https://api.jsmex.io/v1/data/instruments</code></p>
+<p><code>GET https://api.jsmex.io/v1/tracker/tickers</code></p>
 
 <aside class="success">
 Tickers — list of all the trading instruments available right now
@@ -508,8 +508,8 @@ Tickers — list of all the trading instruments available right now
 </span></code></pre>
 <p>This endpoint retrieves all the listed assets.</p>
 <h3 id='http-request-3'>HTTP Request</h3>
-<p><code>GET https://api.jsmex.io/v1/data/assets</code></p>
-<h2 id='get-depth'>Get depth</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.jsmex.io/v1/data/depth"</span>
+<p><code>GET https://api.jsmex.io/v1/tracker/assets</code></p>
+<h2 id='get-depth'>Get depth</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.jsmex.io/v1/tracker/depth"</span>
   -d <span class="s2">"{ticker}"</span>
 </code></pre>
 <blockquote>
@@ -520,10 +520,10 @@ Tickers — list of all the trading instruments available right now
    </span><span class="s2">"result"</span><span class="p">:{</span><span class="w">
       </span><span class="s2">"asks"</span><span class="p">:[</span><span class="w">
          </span><span class="p">[</span><span class="w">
-            </span><span class="s2">"4496.7"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"4.32495"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"19448.002665"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"19448.002665"</span><span class="w">
+            </span><span class="s2">"4496.7"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">price</span><span class="w">
+            </span><span class="s2">"4.32495"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">amount</span><span class="w">
+            </span><span class="s2">"19448.002665"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">deal</span><span class="w"> </span><span class="err">value</span><span class="w">
+            </span><span class="s2">"19448.002665"</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">cumulated</span><span class="w"> </span><span class="err">deal</span><span class="w"> </span><span class="err">value</span><span class="w">
          </span><span class="p">],</span><span class="w">
          </span><span class="p">[</span><span class="w">
             </span><span class="s2">"4498.1"</span><span class="p">,</span><span class="w">
@@ -553,7 +553,7 @@ Tickers — list of all the trading instruments available right now
 </span></code></pre>
 <p>This endpoint retrieves the selected market depth.</p>
 <h3 id='http-request-4'>HTTP Request</h3>
-<p><code>POST https://api.jsmex.io/v1/data/depth</code></p>
+<p><code>POST https://api.jsmex.io/v1/tracker/depth</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -566,7 +566,7 @@ Tickers — list of all the trading instruments available right now
 <td>The ticker of the trading instrument</td>
 </tr>
 </tbody></table>
-<h2 id='get-history'>Get history</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.jsmex.io/v1/data/history"</span>
+<h2 id='get-history'>Get history</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.jsmex.io/v1/tracker/history"</span>
   -d <span class="s2">"{ticker, offset, limit}"</span>
 </code></pre>
 <blockquote>
@@ -588,7 +588,7 @@ Tickers — list of all the trading instruments available right now
 </span></code></pre>
 <p>This endpoint retrieves the market history.</p>
 <h3 id='http-request-5'>HTTP Request</h3>
-<p><code>POST https://api.jsmex.io/v1/data/history/:ticker</code></p>
+<p><code>POST https://api.jsmex.io/v1/tracker/history</code></p>
 <h3 id='url-parameters-2'>URL Parameters</h3>
 <table><thead>
 <tr>
