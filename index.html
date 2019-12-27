@@ -201,7 +201,7 @@
       <script src="javascripts/all.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;javascript&quot;]">
+  <body class="index" data-languages="[&quot;shell&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -212,7 +212,6 @@
       <img src="images/logo.png" class="logo" alt="Logo" />
         <div class="lang-selector">
               <a href="#" data-language-name="shell">shell</a>
-              <a href="#" data-language-name="javascript">javascript</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -223,19 +222,22 @@
             <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
           </li>
           <li>
-            <a href="#user-v1" class="toc-h1 toc-link" data-title="User v1">User v1</a>
+            <a href="#tracker-v1" class="toc-h1 toc-link" data-title="Tracker v1">Tracker v1</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#get-balance" class="toc-h2 toc-link" data-title="Get balance">Get balance</a>
+                    <a href="#get-summary" class="toc-h2 toc-link" data-title="Get summary">Get summary</a>
                   </li>
                   <li>
-                    <a href="#get-data" class="toc-h2 toc-link" data-title="Get data">Get data</a>
+                    <a href="#get-tickers" class="toc-h2 toc-link" data-title="Get tickers">Get tickers</a>
                   </li>
                   <li>
-                    <a href="#get-type" class="toc-h2 toc-link" data-title="Get type">Get type</a>
+                    <a href="#get-assets" class="toc-h2 toc-link" data-title="Get assets">Get assets</a>
                   </li>
                   <li>
-                    <a href="#get-limits" class="toc-h2 toc-link" data-title="Get limits">Get limits</a>
+                    <a href="#get-depth" class="toc-h2 toc-link" data-title="Get depth">Get depth</a>
+                  </li>
+                  <li>
+                    <a href="#get-history" class="toc-h2 toc-link" data-title="Get history">Get history</a>
                   </li>
               </ul>
           </li>
@@ -259,6 +261,23 @@
                   </li>
                   <li>
                     <a href="#get-history" class="toc-h2 toc-link" data-title="Get history">Get history</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#user-v1" class="toc-h1 toc-link" data-title="User v1">User v1</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-balance" class="toc-h2 toc-link" data-title="Get balance">Get balance</a>
+                  </li>
+                  <li>
+                    <a href="#get-data" class="toc-h2 toc-link" data-title="Get data">Get data</a>
+                  </li>
+                  <li>
+                    <a href="#get-type" class="toc-h2 toc-link" data-title="Get type">Get type</a>
+                  </li>
+                  <li>
+                    <a href="#get-limits" class="toc-h2 toc-link" data-title="Get limits">Get limits</a>
                   </li>
               </ul>
           </li>
@@ -307,220 +326,289 @@
         <h1 id='introduction'>Introduction</h1>
 <p>Jsmex Exchange API documentation</p>
 
-<p>We support language bindings in Shell and JavaScript, you can view code examples in the dark area to the right, and you can switch the examples&#39;programming language through the tabs in the top right.</p>
-<h1 id='user-v1'>User v1</h1><h2 id='get-balance'>Get balance</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.jsmex.io/v1/user/balance"</span>
-  -H <span class="s2">"Authorization: Bearer &lt;api_token&gt;"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">Trader</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'jsmex-trader-sdk'</span><span class="p">);</span>
+<p>jsmex.io is the first programmable cryptocurrency exchange. (https://jsmex.io/en)
+In addition to the standard functionalities, jsmex is programmable; this means that users can deploy trading strategies in the account strategy section, and then those will be executed server-side, reducing latency drastically.
+Other exchanges do not commonly use this technology, and We have developed a secure way that can execute third-party code in a runtime process using isolated environments.</p>
 
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Trader</span><span class="p">({</span><span class="na">apiToken</span><span class="p">:</span><span class="s1">'&lt;api_token&gt;'</span><span class="p">});</span>
-<span class="kd">let</span> <span class="nx">balance</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">ccxtExchanges</span><span class="p">.</span><span class="nx">jsmex</span><span class="p">.</span><span class="nx">ccxtInstance</span><span class="p">.</span><span class="nx">balance</span><span class="p">();</span>
+<p>Users can use strategies to build safe measures, advanced trading bots, or manage their market price.
+We have fully integrated ccxt in my custom environment, so Users can easily port any current strategy based on ccxt to jsmex; of course, HTTP requests are restricted and are open only for jsmex.io domains.
+Check out jsmex-trader-sdk (https://www.npmjs.com/package/jsmex-trader-sdk) on npm, our trading strategy sdk based on ccxt.</p>
+
+<ul>
+<li>jsmex https://jsmex.io/en</li>
+<li>discord https://discord.gg/4cKK7Jp</li>
+<li>tg news https://t.me/jsmexio</li>
+<li>twitter https://twitter.com/jsmexchange</li>
+<li>Bounty program! https://bitcointalk.org/index.php?topic=5211724.msg53415453</li>
+</ul>
+<h1 id='tracker-v1'>Tracker v1</h1><h2 id='get-summary'>Get summary</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.jsmex.io/v1/tracker/summary"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"result"</span><span class="p">:</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"default"</span><span class="p">:</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"default"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"trading"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-06T10:36:55.483Z"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"balance"</span><span class="p">:</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"EUR"</span><span class="p">:</span><span class="w">
-                </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"available"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2000"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"freeze"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="w">
-                </span><span class="p">},</span><span class="w">
-                </span><span class="s2">"BTC"</span><span class="p">:</span><span class="w">
-                </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"available"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"freeze"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="w">
-                </span><span class="p">},</span><span class="w">
-                </span><span class="s2">"ETH"</span><span class="p">:</span><span class="w">
-                </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"available"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30.80414074"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"freeze"</span><span class="p">:</span><span class="w"> </span><span class="s2">"18.48526163"</span><span class="w">
-                </span><span class="p">}</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"tickers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="s2">"BTC_USDT"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"stock"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                  </span><span class="s2">"alias"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC"</span><span class="p">,</span><span class="w">
+                  </span><span class="s2">"precision"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"money"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                  </span><span class="s2">"alias"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USDT"</span><span class="p">,</span><span class="w">
+                  </span><span class="s2">"precision"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"ticker"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTCUSDT"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                  </span><span class="s2">"decimal_precision"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+                  </span><span class="s2">"stock_precision"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+                  </span><span class="s2">"money_precision"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+                  </span><span class="s2">"min_amount_pow"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+                  </span><span class="s2">"max_amount_pow"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"offline_trading_fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0025"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                  </span><span class="s2">"low"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6509.5"</span><span class="p">,</span><span class="w">
+                  </span><span class="s2">"open"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6509.5"</span><span class="p">,</span><span class="w">
+                  </span><span class="s2">"high"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6509.5"</span><span class="p">,</span><span class="w">
+                  </span><span class="s2">"last"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6509.5"</span><span class="p">,</span><span class="w">
+                  </span><span class="s2">"deal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"101.67839"</span><span class="p">,</span><span class="w">
+                  </span><span class="s2">"volume"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.01562"</span><span class="p">,</span><span class="w">
+                  </span><span class="s2">"ticker"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTCUSDT"</span><span class="p">,</span><span class="w">
+                  </span><span class="s2">"close"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6509.5"</span><span class="p">,</span><span class="w">
+                  </span><span class="s2">"change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+0.00%"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"quote"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"base"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USDT"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC_USDT"</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+      </span><span class="s2">"assets"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="s2">"USDT"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+               </span><span class="s2">"unifiedCryptoAsset"</span><span class="p">:</span><span class="w"> </span><span class="mi">825</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"asset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"usdt"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"alias"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USDT"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"precision"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"isToken"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"tokenContract"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0xdac17f958d2ee523a2206206994597c13d831ec7 "</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"isFiat"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"chain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ETH"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"deposit"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"withdrawal"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"withdrawalFee"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.001</span><span class="w">
+         </span><span class="p">},</span><span class="w">
+         </span><span class="s2">"BTC"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+               </span><span class="s2">"unifiedCryptoAsset"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"asset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bitcoin"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"alias"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"precision"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"isToken"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"isFiat"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"chain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"deposit"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"withdrawal"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"withdrawalFee"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.001</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves the selected market status.</p>
+<p>This endpoint retrieves all the trading instruments.</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>GET https://api.jsmex.io/v1/user/balance</code></p>
-<h2 id='get-data'>Get data</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.jsmex.io/v1/user/data"</span>
-  -H <span class="s2">"Authorization: Bearer &lt;api_token&gt;"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">// command not supported yet in JavaScript yet</span>
-<span class="c1">// const Trader = require('jsmex-trader-sdk');</span>
-<span class="c1">// </span>
-<span class="c1">// let api = new Trader({apiToken:'&lt;api_token&gt;'});</span>
-<span class="c1">// let data = api.ccxtExchanges.jsmex.ccxtInstance.data();</span>
+<p><code>GET https://api.jsmex.io/v1/data/instruments</code></p>
+
+<aside class="success">
+Summary — list of all the trading instruments and assets available right now
+</aside>
+<h2 id='get-tickers'>Get tickers</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.jsmex.io/v1/tracker/tickers"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jsb4ch@jsmex.io"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"nickname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jsb4ch"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"verified"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CH"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"timezone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Europe/Zurich"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"language"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eng"</span><span class="w">
-  </span><span class="p">}</span><span class="w">
+   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"BTC_USDT"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="s2">"stock"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+               </span><span class="s2">"alias"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"precision"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w">
+         </span><span class="p">},</span><span class="w">
+         </span><span class="s2">"money"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+               </span><span class="s2">"alias"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USDT"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"precision"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w">
+         </span><span class="p">},</span><span class="w">
+         </span><span class="s2">"ticker"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTCUSDT"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+               </span><span class="s2">"decimal_precision"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"stock_precision"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"money_precision"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"min_amount_pow"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"max_amount_pow"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="w">
+         </span><span class="p">},</span><span class="w">
+         </span><span class="s2">"offline_trading_fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0025"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+               </span><span class="s2">"low"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6509.5"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"open"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6509.5"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"high"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6509.5"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"last"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6509.5"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"deal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"101.67839"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"volume"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.01562"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"ticker"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTCUSDT"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"close"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6509.5"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+0.00%"</span><span class="w">
+         </span><span class="p">},</span><span class="w">
+         </span><span class="s2">"quote"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"base"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USDT"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC_USDT"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>This endpoint retrieves the selected market status.</p>
-<h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET https://api.jsmex.io/v1/user/data</code></p>
-<h2 id='get-type'>Get type</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.jsmex.io/v1/user/type"</span>
-  -H <span class="s2">"Authorization: Bearer &lt;api_token&gt;"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">// command not supported in javascript yet</span>
-<span class="c1">// const Trader = require('jsmex-trader-sdk');</span>
-<span class="c1">// </span>
-<span class="c1">// let api = new Trader({apiToken:'&lt;api_token&gt;'});</span>
-<span class="c1">// let type = api.ccxtExchanges.jsmex.ccxtInstance.type();</span>
+</span></code></pre><h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET https://api.jsmex.io/v1/data/instruments</code></p>
+
+<aside class="success">
+Tickers — list of all the trading instruments available right now
+</aside>
+<h2 id='get-assets'>Get assets</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.jsmex.io/v1/tracker/assets"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"accounts"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"asyncTaskLimit"</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"exchange"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"opened_order_limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"trading"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"maker_fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0025"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"taker_fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0025"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"wallet"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"deposits"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"withdrawals"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"withdrawal_crypto_limit"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"daily"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"asset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2500"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"monthly"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"asset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20000"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
+   </span><span class="s2">"success"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"result"</span><span class="p">:{</span><span class="w">
+      </span><span class="s2">"USDT"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"unifiedCryptoAsset"</span><span class="p">:</span><span class="w"> </span><span class="mi">825</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"asset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"usdt"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"alias"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USDT"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"precision"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"isToken"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"tokenContract"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0xdac17f958d2ee523a2206206994597c13d831ec7 "</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"isFiat"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"chain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ETH"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"deposit"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"withdrawal"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"withdrawalFee"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.001</span><span class="w">
       </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"deposit_fiat_limit"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"daily"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"asset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"monthly"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"asset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"withdrawal_fiat_limit"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"daily"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"asset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"monthly"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"asset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
+      </span><span class="s2">"BTC"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"unifiedCryptoAsset"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"asset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bitcoin"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"alias"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"precision"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"isToken"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"isFiat"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"chain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"deposit"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"withdrawal"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"withdrawalFee"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.001</span><span class="w">
       </span><span class="p">}</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">}</span><span class="w">
+   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves the selected market status.</p>
+<p>This endpoint retrieves all the listed assets.</p>
 <h3 id='http-request-3'>HTTP Request</h3>
-<p><code>GET https://api.jsmex.io/v1/user/type</code></p>
-<h2 id='get-limits'>Get limits</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.jsmex.io/v1/user/limits"</span>
-  -H <span class="s2">"Authorization: Bearer &lt;api_token&gt;"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">// command not supported in javascript yet</span>
-<span class="c1">// const Trader = require('jsmex-trader-sdk');</span>
-<span class="c1">// </span>
-<span class="c1">// let api = new Trader({apiToken:'&lt;api_token&gt;'});</span>
-<span class="c1">// let type = api.ccxtExchanges.jsmex.ccxtInstance.limits();</span>
+<p><code>GET https://api.jsmex.io/v1/data/assets</code></p>
+<h2 id='get-depth'>Get depth</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.jsmex.io/v1/data/depth"</span>
+  -d <span class="s2">"{ticker}"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"current_usage"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"withdrawal_fiat_daily_limit"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"asset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"withdrawal_fiat_monthly_limit"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"asset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"deposit_fiat_daily_limit"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"asset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"deposit_fiat_monthly_limit"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"asset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"withdrawal_crypto_daily_limit"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"asset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"withdrawal_crypto_monthly_limit"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"asset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"my_limits"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"withdrawal_crypto_limit"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"daily"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"asset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2500"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"monthly"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"asset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20000"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"deposit_fiat_limit"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"daily"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"asset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"monthly"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"asset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"withdrawal_fiat_limit"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"daily"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"asset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"monthly"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"asset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">}</span><span class="w">
+   </span><span class="s2">"success"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"result"</span><span class="p">:{</span><span class="w">
+      </span><span class="s2">"asks"</span><span class="p">:[</span><span class="w">
+         </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"4496.7"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"4.32495"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"19448.002665"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"19448.002665"</span><span class="w">
+         </span><span class="p">],</span><span class="w">
+         </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"4498.1"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"0.0077"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"34.63537"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"19482.638035"</span><span class="w">
+         </span><span class="p">],</span><span class="w">
+         </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"4499.2"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"0.3052"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"1373.15584"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"1407.79121"</span><span class="w">
+         </span><span class="p">],</span><span class="w">
+         </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"4499.6"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"1.2432"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"5593.90272"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"6967.05856"</span><span class="w">
+         </span><span class="p">],</span><span class="w">
+         </span><span class="p">[</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">]</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+      </span><span class="s2">"bids"</span><span class="p">:[</span><span class="w">
+         </span><span class="p">[</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">]</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves account account limits.</p>
+<p>This endpoint retrieves the selected market depth.</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>POST https://api.jsmex.io/v1/data/depth</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ticker</td>
+<td>The ticker of the trading instrument</td>
+</tr>
+</tbody></table>
+<h2 id='get-history'>Get history</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.jsmex.io/v1/data/history"</span>
+  -d <span class="s2">"{ticker, offset, limit}"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"success"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"result"</span><span class="p">:[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"time"</span><span class="p">:</span><span class="w"> </span><span class="mf">1545256146.774268</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">160519</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.51913934"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"buy"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"market"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTCUSDT"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves the market history.</p>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>POST https://api.jsmex.io/v1/data/history/:ticker</code></p>
+<h3 id='url-parameters-2'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ticker</td>
+<td>The ticker of the trading instrument</td>
+</tr>
+<tr>
+<td>offset</td>
+<td>Skip offset elements</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>Length of requested data</td>
+</tr>
+</tbody></table>
 <h1 id='data-v1'>Data v1</h1><h2 id='get-instruments'>Get instruments</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.jsmex.io/v1/data/instruments"</span>
   -H <span class="s2">"Authorization: Bearer &lt;api_token&gt;"</span>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">Trader</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'jsmex-trader-sdk'</span><span class="p">);</span>
@@ -825,6 +913,219 @@ Instruments — list of all the trading instruments available right now
 <td>Length of requested data</td>
 </tr>
 </tbody></table>
+<h1 id='user-v1'>User v1</h1><h2 id='get-balance'>Get balance</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.jsmex.io/v1/user/balance"</span>
+  -H <span class="s2">"Authorization: Bearer &lt;api_token&gt;"</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">Trader</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'jsmex-trader-sdk'</span><span class="p">);</span>
+
+<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Trader</span><span class="p">({</span><span class="na">apiToken</span><span class="p">:</span><span class="s1">'&lt;api_token&gt;'</span><span class="p">});</span>
+<span class="kd">let</span> <span class="nx">balance</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">ccxtExchanges</span><span class="p">.</span><span class="nx">jsmex</span><span class="p">.</span><span class="nx">ccxtInstance</span><span class="p">.</span><span class="nx">balance</span><span class="p">();</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"result"</span><span class="p">:</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"default"</span><span class="p">:</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"default"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"trading"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-06T10:36:55.483Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"balance"</span><span class="p">:</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"EUR"</span><span class="p">:</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"available"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2000"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"freeze"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="s2">"BTC"</span><span class="p">:</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"available"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"freeze"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="s2">"ETH"</span><span class="p">:</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"available"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30.80414074"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"freeze"</span><span class="p">:</span><span class="w"> </span><span class="s2">"18.48526163"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves the selected market status.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://api.jsmex.io/v1/user/balance</code></p>
+<h2 id='get-data'>Get data</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.jsmex.io/v1/user/data"</span>
+  -H <span class="s2">"Authorization: Bearer &lt;api_token&gt;"</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">// command not supported yet in JavaScript yet</span>
+<span class="c1">// const Trader = require('jsmex-trader-sdk');</span>
+<span class="c1">// </span>
+<span class="c1">// let api = new Trader({apiToken:'&lt;api_token&gt;'});</span>
+<span class="c1">// let data = api.ccxtExchanges.jsmex.ccxtInstance.data();</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jsb4ch@jsmex.io"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"nickname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jsb4ch"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"verified"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CH"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"timezone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Europe/Zurich"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"language"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eng"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves the selected market status.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET https://api.jsmex.io/v1/user/data</code></p>
+<h2 id='get-type'>Get type</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.jsmex.io/v1/user/type"</span>
+  -H <span class="s2">"Authorization: Bearer &lt;api_token&gt;"</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">// command not supported in javascript yet</span>
+<span class="c1">// const Trader = require('jsmex-trader-sdk');</span>
+<span class="c1">// </span>
+<span class="c1">// let api = new Trader({apiToken:'&lt;api_token&gt;'});</span>
+<span class="c1">// let type = api.ccxtExchanges.jsmex.ccxtInstance.type();</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"accounts"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"asyncTaskLimit"</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"exchange"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"opened_order_limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"trading"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"maker_fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0025"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"taker_fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0025"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"wallet"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"deposits"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"withdrawals"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"withdrawal_crypto_limit"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"daily"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"asset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2500"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"monthly"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"asset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20000"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"deposit_fiat_limit"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"daily"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"asset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"monthly"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"asset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"withdrawal_fiat_limit"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"daily"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"asset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"monthly"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"asset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves the selected market status.</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>GET https://api.jsmex.io/v1/user/type</code></p>
+<h2 id='get-limits'>Get limits</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.jsmex.io/v1/user/limits"</span>
+  -H <span class="s2">"Authorization: Bearer &lt;api_token&gt;"</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">// command not supported in javascript yet</span>
+<span class="c1">// const Trader = require('jsmex-trader-sdk');</span>
+<span class="c1">// </span>
+<span class="c1">// let api = new Trader({apiToken:'&lt;api_token&gt;'});</span>
+<span class="c1">// let type = api.ccxtExchanges.jsmex.ccxtInstance.limits();</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"current_usage"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"withdrawal_fiat_daily_limit"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"asset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"withdrawal_fiat_monthly_limit"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"asset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"deposit_fiat_daily_limit"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"asset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"deposit_fiat_monthly_limit"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"asset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"withdrawal_crypto_daily_limit"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"asset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"withdrawal_crypto_monthly_limit"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"asset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"my_limits"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"withdrawal_crypto_limit"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"daily"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"asset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2500"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"monthly"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"asset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20000"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"deposit_fiat_limit"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"daily"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"asset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"monthly"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"asset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"withdrawal_fiat_limit"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"daily"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"asset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"monthly"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"asset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves account account limits.</p>
 <h1 id='exchange-v1'>Exchange v1</h1><h2 id='create-order'>Create order</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.jsmex.io/v1/exchange/order"</span>
   -X PUT
   -d <span class="s1">'{ticker, price, amount, side, defaultAccount}'</span>
@@ -1241,7 +1542,6 @@ Instruments — list of all the trading instruments available right now
       <div class="dark-box">
           <div class="lang-selector">
                 <a href="#" data-language-name="shell">shell</a>
-                <a href="#" data-language-name="javascript">javascript</a>
           </div>
       </div>
     </div>
